@@ -227,6 +227,9 @@ void checkDigitalInputs(void)
   if (TOTAL_PORTS > 15 && reportPINs[15]) outputPort(15, readPort(15, portConfigInputs[15]), false);
 }
 
+void disableI2CPins();
+void reportAnalogCallback(byte, int);
+
 // -----------------------------------------------------------------------------
 /* sets the pin mode to the correct state and sets the relevant bits in the
  * two bit-arrays that track Digital I/O and PWM status
@@ -443,6 +446,8 @@ void reportDigitalCallback(byte port, int value)
 /*==============================================================================
  * SYSEX-BASED commands
  *============================================================================*/
+
+void enableI2CPins();
 
 void sysexCallback(byte command, byte argc, byte *argv)
 {
